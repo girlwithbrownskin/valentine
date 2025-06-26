@@ -1,20 +1,67 @@
-*
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: whitesmoke;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: whitesmoke;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.wrapper {
+  text-align: center;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  position: relative; /* So the no-btn moves relative to this */
+  max-width: 400px;
+  width: 90%;
+}
+
+.question {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #333;
 }
 
 .gif {
-    height: 100%;
-    width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.btn-group {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+  height: 50px;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.yes-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.no-btn {
+  background-color: #f44336;
+  color: white;
+  position: absolute; /* So it can move */
+  transition: top 0.2s ease, left 0.2s ease;
 }
