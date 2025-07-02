@@ -8,25 +8,35 @@
 </head>
 <body>
 
-  <!-- START OVERLAY -->
+  <!-- MODE SELECT OVERLAY -->
   <div id="overlay">
-    <h1>Are you ready for this?</h1>
-    <button id="startBtn">Go</button>
+    <div class="glass-panel">
+      <h1>Choose Your Chaos</h1>
+      <div id="modeSelect">
+        <button class="mode-btn" data-mode="easy">🍼 Crybaby Mode</button>
+        <button class="mode-btn" data-mode="medium">😬 Barely Breathing</button>
+        <button class="mode-btn" data-mode="insane">🔥 Lose Your Mind</button>
+      </div>
+    </div>
   </div>
 
   <!-- GAME AREA -->
   <div id="game">
-    <div id="dot"></div>
+    <div id="dot-container"></div>
     <div id="message">Catch it if you can.</div>
-    <div id="stats">Hits: 0 | Fails: 0 | Max Fails: 3</div>
+    <div id="stats">Hits: 0 | Fails: 0 | Max Fails: 5</div>
   </div>
 
-  <!-- RESULT POPUP DASHBOARD -->
+  <!-- DASHBOARD -->
   <div id="dashboard" class="hidden">
     <div class="dashboard-content">
-      <h2>Game Over 😶‍🌫️</h2>
-      <p id="summaryText"></p>
-      <button id="restartBtn">Play Again</button>
+      <h2>🧠 Game Summary</h2>
+      <table>
+        <tr><td>🎯 Hits:</td><td id="dashHits">0</td></tr>
+        <tr><td>💥 Fails:</td><td id="dashFails">0</td></tr>
+        <tr><td>📈 Status:</td><td id="dashLine">—</td></tr>
+      </table>
+      <button id="restartBtn">Play Again 🔄</button>
     </div>
   </div>
 
