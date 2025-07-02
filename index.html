@@ -7,15 +7,26 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Start overlay -->
   <div id="overlay">
     <h1>Are you ready for this?</h1>
     <button id="startBtn">Go</button>
   </div>
 
+  <!-- Game area -->
   <div id="game">
     <div id="dot"></div>
     <div id="message">Catch it if you can.</div>
     <div id="stats">Hits: 0 | Fails: 0 | Max Fails: 3</div>
+  </div>
+
+  <!-- Result dashboard popup -->
+  <div id="dashboard" class="hidden">
+    <div class="dashboard-content">
+      <h2>Game Over 😶‍🌫️</h2>
+      <p id="summaryText"></p>
+      <button id="restartBtn">Play Again</button>
+    </div>
   </div>
 
   <script src="scripts.js"></script>
