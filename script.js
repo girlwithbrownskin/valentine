@@ -10,8 +10,7 @@ const restartBtn = document.getElementById("restartBtn");
 
 let score = 0;
 let fails = 0;
-let spiralTriggered = false;
-let allowedHits = 0; // Controls when to allow a hit
+let allowedHits = 0;
 
 startBtn.addEventListener("click", () => {
   overlay.style.display = "none";
@@ -29,7 +28,6 @@ function resetGame() {
   score = 0;
   fails = 0;
   allowedHits = 0;
-  spiralTriggered = false;
   dot.style.display = "block";
   updateStats();
   message.textContent = "Catch it if you can.";
@@ -46,13 +44,16 @@ function moveDot(force = false) {
   dot.style.left = `${x}px`;
   dot.style.top = `${y}px`;
 
-  // Reduce hit chance — allow hit only every 3rd move
-  allowedHits = Math.random() > 0.7 || force ? 1 : 0;
+  // Rarely let them hit (about 30% chance)
+  allowedHits = force || Math.random() > 0.7 ? 1 : 0;
 }
 
 dot.addEventListener("click", (e) => {
   e.stopPropagation();
-  if (allowedHits === 0) return moveDot(); // fake click dodge
+  if (allowedHits === 0) {
+    moveDot(); // fake dodge
+    return;
+  }
 
   score++;
   message.textContent = getRandomTaunt(true);
@@ -70,7 +71,7 @@ game.addEventListener("mousemove", (e) => {
   const rect = dot.getBoundingClientRect();
   const dist = Math.hypot(rect.x - e.clientX, rect.y - e.clientY);
   if (dist < 100 && allowedHits === 0) {
-    moveDot(true); // dodge on hover
+    moveDot(true); // dodge if hovered close
   }
 });
 
@@ -87,6 +88,10 @@ game.addEventListener("click", (e) => {
   }
 });
 
+function updateStats() {
+  stats.textContent = `Hits: ${score} | Fails: ${fails} | Max Fails: 3`;
+}
+
 function endGame() {
   dot.style.display = "none";
   let line = "";
@@ -97,10 +102,6 @@ function endGame() {
 
   summaryText.textContent = `Hits: ${score} | Fails: ${fails} — ${line}`;
   dashboard.classList.remove("hidden");
-}
-
-function updateStats() {
-  stats.textContent = `Hits: ${score} | Fails: ${fails} | Max Fails: 3`;
 }
 
 function getRandomTaunt(success) {
