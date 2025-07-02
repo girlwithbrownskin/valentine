@@ -96,6 +96,11 @@ body, html {
   font-size: 0.9rem;
 }
 
+/* Hides elements */
+.hidden {
+  display: none;
+}
+
 /* Dashboard Popup */
 #dashboard {
   position: fixed;
@@ -109,10 +114,6 @@ body, html {
   align-items: center;
   justify-content: center;
   z-index: 20;
-}
-
-.hidden {
-  display: none;
 }
 
 .dashboard-content {
