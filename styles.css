@@ -24,7 +24,7 @@ body, html {
   background: radial-gradient(circle at center, #ff00cc, #333);
   border-radius: 50%;
   cursor: pointer;
-  transition: transform 0.1s;
+  transition: transform 0.1s, top 0.2s ease, left 0.2s ease;
 }
 
 #dot:hover {
@@ -88,4 +88,58 @@ body, html {
   left: 10px;
   color: #ccc;
   font-size: 0.9rem;
+}
+
+/* 📊 DASHBOARD POPUP */
+#dashboard {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 15, 15, 0.95);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.hidden {
+  display: none;
+}
+
+.dashboard-content {
+  text-align: center;
+  background: #111;
+  padding: 2rem 3rem;
+  border-radius: 16px;
+  box-shadow: 0 0 30px #ff00cc44;
+  animation: fadeIn 0.5s ease;
+}
+
+.dashboard-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.dashboard-content p {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+
+#restartBtn {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  background: #ff00cc;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
