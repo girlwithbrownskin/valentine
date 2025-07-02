@@ -44,7 +44,7 @@ function moveDot(force = false) {
   dot.style.left = `${x}px`;
   dot.style.top = `${y}px`;
 
-  // Rarely let them hit (about 30% chance)
+  // Rarely allow hits (force = always allow)
   allowedHits = force || Math.random() > 0.7 ? 1 : 0;
 }
 
@@ -71,7 +71,7 @@ game.addEventListener("mousemove", (e) => {
   const rect = dot.getBoundingClientRect();
   const dist = Math.hypot(rect.x - e.clientX, rect.y - e.clientY);
   if (dist < 100 && allowedHits === 0) {
-    moveDot(true); // dodge if hovered close
+    moveDot(true); // dodge when hovered close
   }
 });
 
